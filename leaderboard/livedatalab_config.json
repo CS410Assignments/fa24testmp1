@@ -1,0 +1,18 @@
+{ "prescript_commands": [ "mkdir -p ~/miniconda3",
+    "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh",
+    "bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3",
+    "rm ~/miniconda3/miniconda.sh",
+
+    "export PATH=~/miniconda3/bin:$PATH",
+    "eval \"$(~/miniconda3/bin/conda shell.bash hook)\"",
+
+    "conda create -n pyserini python=3.10 -y",
+    "conda activate pyserini",
+    "conda install -c conda-forge openjdk=21 maven -y",
+    "conda install -c conda-forge lightgbm nmslib -y",
+    "conda install -c pytorch faiss-cpu pytorch -y",
+    "conda install -c conda-forge spacy -y",
+    "pip install pyserini"
+],
+    "entrypoint": "main"
+}
